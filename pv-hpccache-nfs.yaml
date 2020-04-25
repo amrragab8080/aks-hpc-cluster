@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-k8-hpccache
+spec:
+  capacity:
+    storage: 1Pi
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: hpccache
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  mountOptions:
+    - vers=4
+    - rw
+    - tcp
+    - mountproto=tcp
+    - rsize=1048576
+    - wsize=1048576
+    - hard
+    - timeo=600
+    - retrans=3
+  nfs:
+    server: 10.240.0.5 
+    path: "/nvme"

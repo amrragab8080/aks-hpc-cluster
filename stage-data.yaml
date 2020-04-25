@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: stage-data 
+data:
+  stage-data.sh: |
+    azcopy cp --recursive "https://areastusdevsa.blob.core.windows.net/ragab-ml?st=2020-04-25T21%3A39%3A31Z&se=2020-04-26T21%3A39%3A31Z&sp=rl&sv=2018-03-28&sr=c&sig=s13Em07jKmavV35MiNLLbSFBB3hDbl7oDiBa4tOOR5c%3D" /nfs
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: attach-pvc
+spec:
+  volumes:
+    - name:  nfs
+      persistentVolumeClaim:
+        claimName: k8s-hpccache
+    - name: config
+      configMap:
+        defaultMode: 420
+        items:
+        - key: stage-data.sh
+          mode: 365
+          path: stage-data.sh
+        name: stage-data
+  containers:
+  - name: attach-pvc
+    image: amrragab8080/azcopy:latest
+    command:
+    - sh
+    - /etc/config/stage-data.sh
+    volumeMounts:
+    - name: config
+      mountPath: /etc/config
+    - name:  nfs 
+      mountPath: /nfs

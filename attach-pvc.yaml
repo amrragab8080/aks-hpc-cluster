@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: attach-pvc
+spec:
+  volumes:
+    - name:  nfs
+      persistentVolumeClaim:
+        claimName: k8-hpccache # k8s persistent-volume-claim name  
+  containers:
+  - name: attach-pvc
+    image: ubuntu:latest
+    command: ["/bin/bash"]
+    securityContext:
+      privileged: true
+    args: ["-c", "df -h"]
+    volumeMounts:
+    - name:  nfs 
+      mountPath: /nfs
