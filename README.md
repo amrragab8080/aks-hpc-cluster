@@ -29,7 +29,7 @@ Apply the hpccache pv/pvc
 kubectl apply -f pv-hpccache-nfs.yaml
 kubectl apply -f pvc-hpccache-nfs.yaml
 ```
-Deploy the Kubeflow mpi-operator configuration
+Deploy the Kubeflow mpi-operator on the cluster
 ```
 kubectl apply -f mpi-operator.yaml/deploy/mpi-operator.yaml
 ```
