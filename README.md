@@ -13,8 +13,20 @@ az aks create --resource-group araks --name araksml --node-count 1 --enable-addo
 az aks get-credentials --resource-group araks --name arakstest
 ```
 
-## Apply NVIDIA PLugin
+## Apply NVIDIA Plugin
 ```
 kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.12/nvidia-device-plugin.yml
 ```
 ## Apply HPC Cache PV/PVC
+Change the IP of the NFS server in the `pv-hpccache-nfs.yaml` file
+```
+nfs:
+    server: 10.240.0.5 
+    path: "/hpccache"
+```
+Apply the hpccache pv/pvc
+```
+kubectl apply -f pv-hpccache-nfs.yaml
+```
+
+
