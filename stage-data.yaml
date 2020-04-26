@@ -5,7 +5,7 @@ metadata:
   name: stage-data 
 data:
   stage-data.sh: |
-    azcopy cp --recursive "https://areastusdevsa.blob.core.windows.net/ragab-ml?st=2020-04-25T21%3A39%3A31Z&se=2020-04-26T21%3A39%3A31Z&sp=rl&sv=2018-03-28&sr=c&sig=s13Em07jKmavV35MiNLLbSFBB3hDbl7oDiBa4tOOR5c%3D" /nfs
+    azcopy cp --recursive "<Blob_URI>" /hpccache
 ---
 apiVersion: v1
 kind: Pod
@@ -34,4 +34,4 @@ spec:
     - name: config
       mountPath: /etc/config
     - name:  nfs 
-      mountPath: /nfs
+      mountPath: /hpccache
