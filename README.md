@@ -31,6 +31,6 @@ kubectl apply -f pvc-hpccache-nfs.yaml
 ```
 Deploy the Kubeflow mpi-operator configuration
 ```
-kubectl create -f mpi-operator.yaml/deploy/mpi-operator.yaml
+kubectl apply -f mpi-operator.yaml/deploy/mpi-operator.yaml
 ```
 
