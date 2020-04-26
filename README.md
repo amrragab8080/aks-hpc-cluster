@@ -46,4 +46,10 @@ data:
     azcopy cp --recursive "<Blob_URI>" /hpccache
 ---
 ```
+Start downloading the data from blob onto HPC Cache
+```
+kubectl create -f stage-data.yaml
+kubectl logs -f pod/attach-pvc
+```
+Folow the logs until the 
 
