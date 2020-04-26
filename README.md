@@ -33,4 +33,5 @@ Deploy the Kubeflow mpi-operator on the cluster
 ```
 kubectl apply -f mpi-operator.yaml/deploy/mpi-operator.yaml
 ```
+Staging the data on the HPCCache filesystem is possible through the `staging-data.yaml` modify the configMap path in shtage-data.sh to the container/blob where the data is stored in Azure Blob Storage.
 
