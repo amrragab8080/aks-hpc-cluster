@@ -56,18 +56,18 @@ Follow the logs until download is complete. Once complete we can start the main 
 You can apply any special directives to the example `tf_cnn_benchmarks.py`. The example provided in the github
 ```
 - scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py
-            - --data_format=NCHW
-            - --batch_size=256
-            - --model=resnet50
-            - --optimizer=momentum
-            - --variable_update=horovod
-            - --nodistortions
-            - --gradient_repacking=8
-            - --num_epochs=90
-            - --weight_decay=1e-4
-            - --data_dir=/hpccache/imagenet/train
-            - --use_fp16
-            - --train_dir=/hpccache/models/resnet50
+- --data_format=NCHW
+- --batch_size=256
+- --model=resnet50
+- --optimizer=momentum
+- --variable_update=horovod
+- --nodistortions
+- --gradient_repacking=8
+- --num_epochs=90
+- --weight_decay=1e-4
+- --data_dir=/hpccache/imagenet/train
+- --use_fp16
+- --train_dir=/hpccache/models/resnet50
 ```
 After seting the appropiate paths for the data and training_dir you can create the workflow and start the launcher. 
    
