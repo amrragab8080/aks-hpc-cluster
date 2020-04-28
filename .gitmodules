@@ -1,0 +1,3 @@
+[submodule "mpi-operator"]
+	path = mpi-operator
+	url = https://github.com/kubeflow/mpi-operator.git
