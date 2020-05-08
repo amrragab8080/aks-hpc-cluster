@@ -10,7 +10,7 @@ data:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: attach-pvc
+  name: stage-data
 spec:
   volumes:
     - name:  nfs
