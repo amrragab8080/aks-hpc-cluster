@@ -49,7 +49,7 @@ data:
 Start downloading the data from blob onto HPC Cache
 ```
 kubectl create -f stage-data.yaml
-kubectl logs -f pod/attach-pvc
+kubectl logs -f pod/stage-data
 ```
 Follow the logs until download is complete. Once complete we can start the main workflow
 ## Running Tensorflow example
